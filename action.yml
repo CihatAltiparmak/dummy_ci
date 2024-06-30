@@ -1,0 +1,6 @@
+name: 'Benchmark middlewares on moveit'
+description: 'Burcin ile Tarcin'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
