@@ -3,7 +3,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  industrial_ci:
+  masquerade:
     name: ROS ${{ matrix.ROS_DISTRO }} (${{ matrix.ROS_REPO }})
     strategy:
       matrix:
@@ -15,4 +15,4 @@ jobs:
       CCACHE_DIR: "${{ github.workspace }}/.ccache"
     runs-on: ubuntu-latest
     steps:
-      - uses: CihatAltiparmak/dummy_ci 
+      - uses: CihatAltiparmak/dummy_ci@v1
