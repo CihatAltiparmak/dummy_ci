@@ -15,4 +15,4 @@ jobs:
       CCACHE_DIR: "${{ github.workspace }}/.ccache"
     runs-on: ubuntu-latest
     steps:
-      - uses: CihatAltiparmak/dummy_ci@v2
+      - uses: CihatAltiparmak/dummy_ci@v3
