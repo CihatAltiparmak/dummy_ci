@@ -19,7 +19,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/CihatAltiparmak/hello-world
+          images: ghcr.io/CihatAltiparmak/dummy_ci
           flavor: latest=true
           tags: |
             type=ref,event=branch
@@ -28,6 +28,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          push: ${{ github.ref_type == 'tag' }}
+          push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
