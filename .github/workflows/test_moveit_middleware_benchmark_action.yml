@@ -9,3 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./
+      - name: run_percpetion_pipeline_benchmark
+        run: source /opt/ros/rolling/setup.bash
+        
