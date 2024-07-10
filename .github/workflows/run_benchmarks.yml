@@ -11,7 +11,8 @@ jobs:
     steps:
       - name: run perception benchmark
         run: |
-          ls -a
+          pwd
+          ls ..
           cd ws
           source /opt/ros/rolling/setup.bash
           source install/setup.bash
