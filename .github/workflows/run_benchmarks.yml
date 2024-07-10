@@ -34,5 +34,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           # Push and deploy GitHub pages branch automatically
           auto-push: true
+          gh-pages-branch: "gh-pages"
           
     
