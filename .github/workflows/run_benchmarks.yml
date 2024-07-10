@@ -24,6 +24,8 @@ jobs:
           cd /ws
           . install/setup.sh
           ros2 launch moveit_middleware_benchmark scenario_perception_pipeline_benchmark.launch.py
+      - name: clone repo
+        uses: actions/checkout@v3
       - name: push perception benchmark results to github pages
         uses: benchmark-action/github-action-benchmark@v1
         with:
