@@ -15,6 +15,10 @@ jobs:
           ls ..
           ls /
           ls /ws
+          cd /ws/src/moveit_middleware_benchmark
+          git pull
+          cd /ws
+          colcon build --mixin release --packages-select moveit_middleware_benchmark
           cd /ws
           . /opt/ros/rolling/setup.sh
           . install/setup.sh
