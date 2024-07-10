@@ -24,5 +24,15 @@ jobs:
           cd /ws
           . install/setup.sh
           ros2 launch moveit_middleware_benchmark scenario_perception_pipeline_benchmark.launch.py
+      - name: push perception benchmark results to github pages
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          name: Dummy Project Perception Pipeline Benchmark
+          tool: 'googlecpp'
+          output-file-path: /ws/middleware_benchmark_results.json
+          # Access token to deploy GitHub Pages branch
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # Push and deploy GitHub pages branch automatically
+          auto-push: true
           
     
