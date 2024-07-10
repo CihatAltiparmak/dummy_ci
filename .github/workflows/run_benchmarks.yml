@@ -18,9 +18,10 @@ jobs:
           cd /ws/src/moveit_middleware_benchmark
           git pull
           cd /ws
-          colcon build --mixin release --packages-select moveit_middleware_benchmark
-          cd /ws
           . /opt/ros/rolling/setup.sh
+          . install/setup.sh
+          colcon build --packages-select moveit_middleware_benchmark
+          cd /ws
           . install/setup.sh
           ros2 launch moveit_middleware_benchmark scenario_perception_pipeline_benchmark.launch.py
           
