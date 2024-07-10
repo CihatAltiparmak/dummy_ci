@@ -32,3 +32,17 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+  run_middleware_benchmarks:
+    name: run_benchmarks
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/cihataltiparmak/dummy_ci:latest
+    steps:
+      - name: run perception benchmark
+        run: |
+          cd ws
+          source /opt/ros/rolling/setup.bash
+          source install/setup.bash
+          ros2 launch moveit_middleware_benchmark scenario_perception_pipeline_benchmark.launch.py
+          
+    
