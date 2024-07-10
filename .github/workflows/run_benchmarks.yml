@@ -16,8 +16,8 @@ jobs:
           ls /
           ls /ws
           cd /ws
-          source /opt/ros/rolling/setup.bash
-          source install/setup.bash
+          . /opt/ros/rolling/setup.sh
+          . install/setup.sh
           ros2 launch moveit_middleware_benchmark scenario_perception_pipeline_benchmark.launch.py
           
     
