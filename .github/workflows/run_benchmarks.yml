@@ -26,6 +26,9 @@ jobs:
           ros2 launch moveit_middleware_benchmark scenario_perception_pipeline_benchmark.launch.py
       - name: clone repo
         uses: actions/checkout@v3
+      - name: add to safe directory
+        run: |
+          git config --global --add safe.directory /__w/dummy_ci/dummy_ci
       - name: push perception benchmark results to github pages
         uses: benchmark-action/github-action-benchmark@v1
         with:
