@@ -26,7 +26,7 @@ window.BENCHMARK_DATA = {
         "tool": "googlecpp",
         "benches": [
           {
-            "name": "ScenarioPerceptionPipelineFixture/test_scenario_perception_pipeline2",
+            "name": "ScenarioPerceptionPipelineFixture/test_scenario_perception_pipeline",
             "value": 6814838595,
             "unit": "ns/iter",
             "extra": "iterations: 1\ncpu: 137316458 ns\nthreads: 1"
