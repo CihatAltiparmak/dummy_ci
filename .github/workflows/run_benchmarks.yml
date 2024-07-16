@@ -27,6 +27,9 @@ jobs:
           cd /ws
           . install/setup.sh
           ros2 launch moveit_middleware_benchmark scenario_perception_pipeline_benchmark.launch.py
+          mv /ws/middleware_benchmark_results.json /ws/middleware_benchmark_results_1.json
+          ros2 launch moveit_middleware_benchmark scenario_perception_pipeline_benchmark.launch.py
+          mv /ws/middleware_benchmark_results.json /ws/middleware_benchmark_results_2.json
       - name: clone repo
         uses: actions/checkout@v3
       - name: add to safe directory
@@ -35,9 +38,21 @@ jobs:
       - name: push perception benchmark results to github pages
         uses: benchmark-action/github-action-benchmark@v1
         with:
-          name: Dummy Project Perception Pipeline Benchmark
+          name: Dummy Project Perception Pipeline Benchmark 1
           tool: 'googlecpp'
-          output-file-path: /ws/middleware_benchmark_results.json
+          output-file-path: /ws/middleware_benchmark_results_1.json
+          # Access token to deploy GitHub Pages branch
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # Push and deploy GitHub pages branch automatically
+          auto-push: true
+          gh-pages-branch: "gh-pages"
+          benchmark-data-dir-path: "elmaciyim_elmaci/benchmarks"
+      - name: push perception benchmark results to github pages
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          name: Dummy Project Perception Pipeline Benchmark 2
+          tool: 'googlecpp'
+          output-file-path: /ws/middleware_benchmark_results_2.json
           # Access token to deploy GitHub Pages branch
           github-token: ${{ secrets.GITHUB_TOKEN }}
           # Push and deploy GitHub pages branch automatically
