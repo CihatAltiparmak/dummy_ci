@@ -82,7 +82,7 @@ function init() {
     const JARBAY_DATA = reformat_dataset(
             new Map([
                 ["rmw_fastrtps", fastrtps_data], 
-                ["rmw_cyclonedds", cyclonedds_data], 
+                ["rmw_cyclonedds", cyclonedds_data]
                 // ["rmw_zenoh", data]]
 		   ]));
 
