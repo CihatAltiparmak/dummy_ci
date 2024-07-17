@@ -14,6 +14,7 @@ jobs:
     steps:
       - name: run perception benchmark
         run: |
+          echo crazy pasta
           cd /ws
           . /opt/ros/rolling/setup.sh
           . install/setup.sh
