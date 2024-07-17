@@ -14,18 +14,10 @@ jobs:
     steps:
       - name: run perception benchmark
         run: |
-          pwd
-          ls ..
-          ls /
-          ls /ws
-          cd /ws/src/moveit_middleware_benchmark
-          git pull
           cd /ws
           . /opt/ros/rolling/setup.sh
           . install/setup.sh
           colcon build --packages-select moveit_middleware_benchmark
-          cd /ws
-          . install/setup.sh
           pkill ros
           ros2 daemon stop
           export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
