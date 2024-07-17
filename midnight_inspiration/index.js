@@ -84,7 +84,7 @@ function init() {
                 ["rmw_fastrtps", fastrtps_data], 
                 ["rmw_cyclonedds", cyclonedds_data], 
                 // ["rmw_zenoh", data]]
-		   ));
+		   ]));
 
 	// // Render header
 	// document.getElementById('last-update').textContent = new Date(data.lastUpdate).toString();
