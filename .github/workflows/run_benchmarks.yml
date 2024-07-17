@@ -10,7 +10,7 @@ jobs:
       contents: write
       deployments: write
     container:
-      image: ghcr.io/cihataltiparmak/dummy_ci:latest
+      image: ghcr.io/cihataltiparmak/moveit_middleware_benchmark:latest
     steps:
       - name: run perception benchmark
         run: |
@@ -26,10 +26,16 @@ jobs:
           colcon build --packages-select moveit_middleware_benchmark
           cd /ws
           . install/setup.sh
+          pkill ros
+          ros2 daemon stop
+          export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
           ros2 launch moveit_middleware_benchmark scenario_perception_pipeline_benchmark.launch.py
-          mv /ws/middleware_benchmark_results.json /ws/middleware_benchmark_results_1.json
+          mv /ws/middleware_benchmark_results.json /ws/middleware_benchmark_results_fastrtps.json
+          pkill ros
+          ros2 daemon stop
+          export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
           ros2 launch moveit_middleware_benchmark scenario_perception_pipeline_benchmark.launch.py
-          mv /ws/middleware_benchmark_results.json /ws/middleware_benchmark_results_2.json
+          mv /ws/middleware_benchmark_results.json /ws/middleware_benchmark_results_cyclonedds.json
       - name: clone repo
         uses: actions/checkout@v3
       - name: add to safe directory
@@ -38,26 +44,26 @@ jobs:
       - name: push perception benchmark results to github pages
         uses: benchmark-action/github-action-benchmark@v1
         with:
-          name: Dummy Project Perception Pipeline Benchmark 1
+          name: Perception Pipeline Benchmark
           tool: 'googlecpp'
-          output-file-path: /ws/middleware_benchmark_results_1.json
+          output-file-path: /ws/middleware_benchmark_results_fastrtps.json
           # Access token to deploy GitHub Pages branch
           github-token: ${{ secrets.GITHUB_TOKEN }}
           # Push and deploy GitHub pages branch automatically
           auto-push: true
           gh-pages-branch: "gh-pages"
-          benchmark-data-dir-path: "elmaciyim_elmaci/benchmarks"
+          benchmark-data-dir-path: "midnight_inspiration/rmw_fastrtps"
       - name: push perception benchmark results to github pages
         uses: benchmark-action/github-action-benchmark@v1
         with:
-          name: Dummy Project Perception Pipeline Benchmark 2
+          name: Perception Pipeline Benchmark
           tool: 'googlecpp'
-          output-file-path: /ws/middleware_benchmark_results_2.json
+          output-file-path: /ws/middleware_benchmark_results_cyclonedds.json
           # Access token to deploy GitHub Pages branch
           github-token: ${{ secrets.GITHUB_TOKEN }}
           # Push and deploy GitHub pages branch automatically
           auto-push: true
           gh-pages-branch: "gh-pages"
-          benchmark-data-dir-path: "elmaciyim_elmaci/benchmarks" 
+          benchmark-data-dir-path: "midnight_inspiration/rmw_cyclonedds" 
           
     
