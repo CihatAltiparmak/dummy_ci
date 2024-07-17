@@ -17,16 +17,10 @@ jobs:
           cd /ws
           . /opt/ros/rolling/setup.sh
           . install/setup.sh
-          pkill ros
-          ros2 daemon stop
           export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
           ros2 launch moveit_middleware_benchmark scenario_perception_pipeline_benchmark.launch.py
           mv /ws/middleware_benchmark_results.json /ws/middleware_benchmark_results_fastrtps.json
-          pkill ros
-          ros2 daemon stop
-          export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-          ros2 launch moveit_middleware_benchmark scenario_perception_pipeline_benchmark.launch.py
-          mv /ws/middleware_benchmark_results.json /ws/middleware_benchmark_results_cyclonedds.json
+          
       - name: clone repo
         uses: actions/checkout@v3
       - name: add to safe directory
@@ -44,6 +38,30 @@ jobs:
           auto-push: true
           gh-pages-branch: "gh-pages"
           benchmark-data-dir-path: "midnight_inspiration/rmw_fastrtps"
+
+  run_istiridye_benchmarks:
+    name: run_istiridye_benchmarks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      deployments: write
+    container:
+      image: ghcr.io/cihataltiparmak/moveit_middleware_benchmark:latest
+    steps:
+      - name: run perception benchmark
+        run: |
+          cd /ws
+          . /opt/ros/rolling/setup.sh
+          . install/setup.sh
+          export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+          ros2 launch moveit_middleware_benchmark scenario_perception_pipeline_benchmark.launch.py
+          mv /ws/middleware_benchmark_results.json /ws/middleware_benchmark_results_cyclonedds.json
+      - name: clone repo
+        uses: actions/checkout@v3
+      - name: add to safe directory
+        run: |
+          git config --global --add safe.directory /__w/dummy_ci/dummy_ci
+      
       - name: push perception benchmark results to github pages
         uses: benchmark-action/github-action-benchmark@v1
         with:
