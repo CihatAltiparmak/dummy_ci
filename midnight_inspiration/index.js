@@ -76,7 +76,7 @@ function init() {
 
     const fastrtps_data = fastrtps_benchmark_data.BENCHMARK_DATA;
     const cyclonedds_data = cyclonedds_benchmark_data.BENCHMARK_DATA;
-	const data = zenoh_benchmark_data.BENCHMARK_DATA;
+    // const data = zenoh_benchmark_data.BENCHMARK_DATA;
 
     console.log("zenoh: ", data);
     const JARBAY_DATA = reformat_dataset(
