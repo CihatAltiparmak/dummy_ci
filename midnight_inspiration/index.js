@@ -1,4 +1,4 @@
-import * as zenoh_benchmark_data from './rmw_zenoh/common.js';
+// import * as zenoh_benchmark_data from './rmw_zenoh/common.js';
 import * as fastrtps_benchmark_data from './rmw_fastrtps/common.js';
 import * as cyclonedds_benchmark_data from './rmw_cyclonedds/common.js';
 
