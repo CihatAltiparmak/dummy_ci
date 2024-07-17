@@ -17,7 +17,6 @@ jobs:
           cd /ws
           . /opt/ros/rolling/setup.sh
           . install/setup.sh
-          colcon build --packages-select moveit_middleware_benchmark
           pkill ros
           ros2 daemon stop
           export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
