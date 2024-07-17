@@ -83,22 +83,23 @@ function init() {
             new Map([
                 ["rmw_fastrtps", fastrtps_data], 
                 ["rmw_cyclonedds", cyclonedds_data], 
-                ["rmw_zenoh", data]]));
+                // ["rmw_zenoh", data]]
+		   ));
 
-	// Render header
-	document.getElementById('last-update').textContent = new Date(data.lastUpdate).toString();
-	const repoLink = document.getElementById('repository-link');
-	repoLink.href = data.repoUrl;
-	repoLink.textContent = data.repoUrl;
+	// // Render header
+	// document.getElementById('last-update').textContent = new Date(data.lastUpdate).toString();
+	// const repoLink = document.getElementById('repository-link');
+	// repoLink.href = data.repoUrl;
+	// repoLink.textContent = data.repoUrl;
 
-	// Render footer
-	document.getElementById('dl-button').onclick = () => {
-		const dataUrl = 'data:,' + JSON.stringify(data, null, 2);
-		const a = document.createElement('a');
-		a.href = dataUrl;
-		a.download = 'benchmark_data.json';
-		a.click();
-	};
+	// // Render footer
+	// document.getElementById('dl-button').onclick = () => {
+	// 	const dataUrl = 'data:,' + JSON.stringify(data, null, 2);
+	// 	const a = document.createElement('a');
+	// 	a.href = dataUrl;
+	// 	a.download = 'benchmark_data.json';
+	// 	a.click();
+	// };
 
     return JARBAY_DATA;
 }
