@@ -18,7 +18,7 @@ jobs:
           cd /ws/src/moveit_middleware_benchmark/launch
           rm -rf scenario_perception_pipeline_benchmark.launch.py
           apt install wget
-          wget https://gist.githubusercontent.com/CihatAltiparmak/38f8200b74fb5b3ff17ecc68f968a546/raw/421351ae4989fe259b5c20c9888c080508999d26/scenario_perception_pipeline_benchmark.launch.py
+          wget https://gist.githubusercontent.com/CihatAltiparmak/38f8200b74fb5b3ff17ecc68f968a546/raw/aeab688aa38e748b526afce17c689ce956765000/scenario_perception_pipeline_benchmark.launch.py
           cd /ws
           . /opt/ros/rolling/setup.sh
           colcon build --packages-select moveit_middleware_benchmark
@@ -61,7 +61,7 @@ jobs:
           cd /ws/src/moveit_middleware_benchmark/launch
           rm -rf scenario_perception_pipeline_benchmark.launch.py
           apt install wget
-          wget https://gist.githubusercontent.com/CihatAltiparmak/38f8200b74fb5b3ff17ecc68f968a546/raw/421351ae4989fe259b5c20c9888c080508999d26/scenario_perception_pipeline_benchmark.launch.py
+          wget https://gist.githubusercontent.com/CihatAltiparmak/38f8200b74fb5b3ff17ecc68f968a546/raw/aeab688aa38e748b526afce17c689ce956765000/scenario_perception_pipeline_benchmark.launch.py
           cd /ws
           . /opt/ros/rolling/setup.sh
           colcon build --packages-select moveit_middleware_benchmark
