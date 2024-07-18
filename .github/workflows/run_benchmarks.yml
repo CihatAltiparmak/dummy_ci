@@ -49,6 +49,7 @@ jobs:
 
   run_istiridye_benchmarks:
     name: run_istiridye_benchmarks
+    needs : [run_middleware_benchmarks]
     runs-on: ubuntu-latest
     permissions:
       contents: write
