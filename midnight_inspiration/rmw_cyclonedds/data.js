@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1721329843686,
+  "lastUpdate": 1721330491636,
   "repoUrl": "https://github.com/CihatAltiparmak/dummy_ci",
   "entries": {
     "Perception Pipeline Benchmark": [
@@ -90,6 +90,36 @@ window.BENCHMARK_DATA = {
             "value": 24774734216.5,
             "unit": "ns/iter",
             "extra": "iterations: 6\ncpu: 154359826.33333334 ns\nthreads: 1"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "cihataltiparmak1@gmail.com",
+            "name": "CihatAltiparmak",
+            "username": "CihatAltiparmak"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "555b227fbc93cc1cd1dc53b3a3fb391207b3b718",
+          "message": "John Romero Sekli",
+          "timestamp": "2024-07-18T22:17:52+03:00",
+          "tree_id": "7b29610b136b2277daa23bbb3fba4b4c924e8b20",
+          "url": "https://github.com/CihatAltiparmak/dummy_ci/commit/555b227fbc93cc1cd1dc53b3a3fb391207b3b718"
+        },
+        "date": 1721330491373,
+        "tool": "googlecpp",
+        "benches": [
+          {
+            "name": "ScenarioPerceptionPipelineFixture/test_scenario_perception_pipeline",
+            "value": 20485612680.66667,
+            "unit": "ns/iter",
+            "extra": "iterations: 6\ncpu: 130300368.33333333 ns\nthreads: 1"
           }
         ]
       }
